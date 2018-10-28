@@ -15,6 +15,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import sun.java2d.cmm.kcms.KcmsServiceProvider;
+
 /**
  * @ClassName： ExcelMerge
  * 
@@ -31,12 +33,12 @@ public class ExcelMerge {
 		for (String name : names)
 			files.add(new File(name));
 		// 目标excel文件
-		XSSFWorkbook  targetBook = new XSSFWorkbook();
+		XSSFWorkbook  targetBook = new XSSFWorkbook(new FileInputStream(files.get(0)));
 		XSSFWorkbook workbook;//要合并的表的引用
 		XSSFSheet sourceSheet;
 		//遍历文件列表
 		int size = files.size();//文件个数
-		for (int k = 0;k < size;k ++) {
+		for (int k = 1;k < size;k ++) {
 			// 读取一个表
 			workbook = new XSSFWorkbook(new FileInputStream(files.get(k)));
 			//获取该表的sheet数
