@@ -10,10 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;;
 
-/**
- * Hello world!
- *
- */
+//程序入口
 public class App extends Application {
 	public static void main(String[] args) {
 		//启动应用程序
