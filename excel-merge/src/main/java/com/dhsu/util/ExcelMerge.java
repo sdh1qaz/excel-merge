@@ -26,6 +26,7 @@ import sun.java2d.cmm.kcms.KcmsServiceProvider;
  */
 public class ExcelMerge {
 	public static boolean merge(String[] names,String fileName) throws FileNotFoundException, IOException {
+		System.out.println("开始合并...");
 		// 文件名列表
 		//String[] names = { "D:\\kdxf\\开发测试\\excel合并测试\\工作量1.xls", "D:\\kdxf\\开发测试\\excel合并测试\\工作量2.xls"};
 		// 转化为文件列表
@@ -95,6 +96,7 @@ public class ExcelMerge {
 		targetBook.write(fo);
 		targetBook.close();
 		fo.close();
+		System.out.println("合并成功....");
 		return true;
 	}
 }

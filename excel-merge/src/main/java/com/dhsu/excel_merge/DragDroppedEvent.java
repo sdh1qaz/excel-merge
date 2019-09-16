@@ -26,12 +26,14 @@ public class DragDroppedEvent implements EventHandler<DragEvent> {
 		Dragboard dragboard = event.getDragboard();
 		if (dragboard.hasFiles()) {
 			try {
-				File file = dragboard.getFiles().get(0);
-				if (file != null) {
-					StringBuffer sBuffer = new StringBuffer();
-					sBuffer.append(textArea.getText());
-					textArea.setText(sBuffer.toString() + file.getAbsolutePath() + "\n");
+				StringBuffer sBuffer = new StringBuffer();
+				sBuffer.append(textArea.getText());
+				for(File file : dragboard.getFiles()) {
+					if (file != null) {
+						sBuffer.append(file.getAbsolutePath() + "\n");
+					}
 				}
+				textArea.setText(sBuffer.toString());
 			} catch (Exception e) {
 			}
 		}
